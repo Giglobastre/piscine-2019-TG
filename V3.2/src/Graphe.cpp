@@ -2,10 +2,9 @@
 
 using namespace std;
 
-
 Graphe::Graphe()
 {
-    std::ifstream ifs("broadway.txt", std::ios::in);
+    std::ifstream ifs("manhattan.txt", std::ios::in);
     ifs >> m_ordre;
     if ( ifs.fail() )
         throw std::runtime_error("Probleme lecture ordre du graphe");
@@ -60,10 +59,10 @@ Graphe::Graphe()
         id=stoi(id_voisin); //string to int
         m_voisins_id.push_back(id);
 
-
+        sommets = new int[m_ordre];
     }
 
-    std::ifstream ifs2("Broadway_weights_0.txt", std::ios::in);
+    std::ifstream ifs2("manhattan_weights_0.txt", std::ios::in);
     int taille,nbpoids,id2;
     float p1,p2;
     ifs2>>taille;
@@ -218,9 +217,49 @@ void Graphe::affiche_poids()
     }
 }
 
+// Cherche le sommet i;
+int Graphe::find(int i) {
+    while(sommets[i] != i) {
+        i = sommets[i];
+    }
+    return i;
+}
+
+void Graphe::union1(int i, int j)
+{
+    int a = find(i);
+    int b = find(j);
+    sommets[a] = b;
+}
+
 
 void Graphe::kruskal()
 {
+    int mincost = 0; // Cost of min MST.
+
+    // Initialize sets of disjoint sets.
+    for (int i = 0; i < m_ordre; i++)
+        sommets[i] = i;
+
+    // Include minimum weight edges one by one
+    int edge_count = 0;
+    while (edge_count < m_ordre - 1) {
+        float min = INT_MAX;
+        int a = -1, b = -1;
+        for (int i = 0; i < m_ordre; i++) {
+            for (int j = 0; j < m_ordre; j++) {
+                if (find(i) != find(j) && m_Arrete2[i].getp1() < min) {
+                    min = m_Arrete2[i].getp1();
+                    a = i;
+                    b = j;
+                }
+            }
+        }
+        union1(a, b);
+        cout<<"Edge "<< edge_count++<<":("<<a<<", "<<b<<") cost:"<<min<<"\n"<<endl;
+        mincost += min;
+    }
+    cout<<"\n Minimum cost= "<<mincost<<" \n"<<endl;
 
 }
 

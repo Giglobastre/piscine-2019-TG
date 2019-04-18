@@ -15,6 +15,15 @@ Arrete::~Arrete()
     //dtor
 }
 
+float Arrete::getp1()
+{
+    return m_p1;
+}
+float Arrete::getp2()
+{
+    return m_p2;
+}
+
 void Arrete::setS1(Sommet S1)
 {
     m_S1=S1;

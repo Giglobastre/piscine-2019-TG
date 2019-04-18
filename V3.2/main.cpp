@@ -60,7 +60,8 @@ int main()
                     cout<<"HELLO"<<endl;
                 g.getVectArrete()[i].affiche();
             }
-
+            cout<<"KRUSKAL-------"<<endl;
+            g.kruskal();
             while (!key[KEY_ESC])
             {
                 clear_bitmap(fond);
@@ -69,6 +70,7 @@ int main()
                 g.remplissage_poids(fond);
                 blit(fond,screen,0,0,0,0,WIDTH,HEIGHT);
             }
+
             break;
 
         case 4:

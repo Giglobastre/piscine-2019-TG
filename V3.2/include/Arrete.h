@@ -9,6 +9,8 @@ class Arrete
         Arrete(Sommet S1, Sommet S2, float p1, float p2,int id);
         virtual ~Arrete();
 
+        float getp1();
+        float getp2();
         void setS1(Sommet S1);
         void setS2(Sommet S2);
         void setp1(float p1);

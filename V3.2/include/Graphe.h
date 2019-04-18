@@ -34,12 +34,15 @@ class Graphe//:public Sommet
         std::vector<int> m_Arrete;
         std::vector<Arrete> m_Arrete2;
 
-        int m_ordre,m_taille;
+
+        int m_ordre,m_taille, *sommets;
         Sommet *m_voisins_som[2][sizeof(m_Sommets)]; //new sommet... pr completer
         //int m_voisins_id[3][sizeof(m_Sommets)];
         //std::vector <std::vector<int>> m_voisins_id; //vect a 2 dim mais c mieux de lineariser
         std::vector <int>  m_voisins_id;
         std::vector <float> m_poids;
+        int find(int i);
+        void union1(int i, int j);
 };
 
 #endif // GRAPHE_H
