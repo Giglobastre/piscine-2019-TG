@@ -22,9 +22,11 @@ class Graphe//:public Sommet
         void affiche_vect();
         void affiche_tab();
         void affiche_poids();
+        float retourne_poids();
         void kruskal();
         int getOrdre();
         void affiche_Arrete();
+        std::vector<Arrete> getVectArrete();
 
     protected:
 
@@ -33,12 +35,15 @@ class Graphe//:public Sommet
         std::vector<int> m_Arrete;
         std::vector<Arrete> m_Arrete2;
 
-        int m_ordre,m_taille;
+
+        int m_ordre,m_taille, *sommets;
         Sommet *m_voisins_som[2][sizeof(m_Sommets)]; //new sommet... pr completer
         //int m_voisins_id[3][sizeof(m_Sommets)];
         //std::vector <std::vector<int>> m_voisins_id; //vect a 2 dim mais c mieux de lineariser
         std::vector <int>  m_voisins_id;
         std::vector <float> m_poids;
+        int trouver(int i);
+        void assemblage(int i, int j);
 };
 
 #endif // GRAPHE_H

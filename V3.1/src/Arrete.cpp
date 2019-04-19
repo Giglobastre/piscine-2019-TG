@@ -31,3 +31,12 @@ void Arrete::setp2(int p2)
 {
     m_p2=p2;
 }
+void Arrete::affiche()
+{
+    std::cout<<"id : "<<m_id<<std::endl;
+    std::cout<<"sommet1 : "<<std::endl;
+    m_S1.affiche();
+    std::cout<<"sommet2 : "<<std::endl;
+    m_S2.affiche();
+    std::cout<<"poids 1 et 2 "<<m_p1<<" ; "<<m_p2<<std::endl;
+}

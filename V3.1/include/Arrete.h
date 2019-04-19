@@ -13,6 +13,7 @@ class Arrete
         void setS2(Sommet S2);
         void setp1(int p1);
         void setp2(int p2);
+        void affiche();
 
     protected:
 

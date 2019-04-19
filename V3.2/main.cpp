@@ -47,6 +47,7 @@ int main()
         switch(quit)
         {
         case 1:
+
             g.affiche_vect();
             cout<<"/////////////////////////"<<endl;
             g.affiche_tab();
@@ -55,19 +56,26 @@ int main()
             cout<<"/////////////////////////"<<endl;
             cout<<"/////////vect"<<endl;
             g.remplissage_vectArrete();
+            for(int i=0; i < g.getVectArrete().size(); i++) {
+                    cout<<"HELLO"<<endl;
+                g.getVectArrete()[i].affiche();
+            }
+            cout<<"KRUSKAL-------"<<endl;
+            g.kruskal();
             while (!key[KEY_ESC])
             {
                 clear_bitmap(fond);
                 g.remplissage(fond);
+                cout<<"remplissage arrete"<<endl;
                 g.remplissage_arrete(fond);
                 g.remplissage_poids(fond);
                 blit(fond,screen,0,0,0,0,WIDTH,HEIGHT);
             }
+
             break;
 
         case 4:
             return 0;
-            break;
         }
 
 

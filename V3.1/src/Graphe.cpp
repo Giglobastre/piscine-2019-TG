@@ -250,12 +250,12 @@ void Graphe::remplissage_vectArrete()
         p2=m_poids[i+1];
         id_a=m_voisins_id[i-1];
         //Sommet S1(id,x,y), S2(id2,x2,y2);
-        cout<<"seryuiophgfdsfghjklkjhgfdfghjkl"<<endl;
+
         m_Sommets[ns1].affiche();
         m_Sommets[ns2].affiche();
         ///m_Arrete2.push_back(Arrete{S1,S2,p1,p2,id_a});
         m_Arrete2.push_back(Arrete{m_Sommets[ns1],m_Sommets[ns2],p1,p2,id_a});
-        ///m_Arrete2[i].affiche();
+        m_Arrete2[i].affiche();
     }
 
 }

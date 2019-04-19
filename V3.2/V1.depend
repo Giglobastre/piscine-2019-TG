@@ -134,3 +134,37 @@
 1555594396 c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.1\include\arrete.h
 	"Sommet.h"
 
+1555680238 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\main.cpp
+	<iostream>
+	"Sommet.h"
+	<vector>
+	<fstream>
+	"Graphe.h"
+	<allegro.h>
+
+1555518800 c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\include\sommet.h
+	<iostream>
+	<vector>
+
+1555694403 c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\include\graphe.h
+	<vector>
+	<fstream>
+	<iostream>
+	<allegro.h>
+	"Sommet.h"
+	<string>
+	<sstream>
+	"Arrete.h"
+
+1555702434 c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\include\arrete.h
+	"Sommet.h"
+
+1555705055 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\src\arrete.cpp
+	"Arrete.h"
+
+1555597023 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\src\sommet.cpp
+	"Sommet.h"
+
+1555702969 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\src\graphe.cpp
+	"Graphe.h"
+

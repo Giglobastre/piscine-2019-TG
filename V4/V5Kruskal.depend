@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1555680238 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\main.cpp
+	<iostream>
+	"Sommet.h"
+	<vector>
+	<fstream>
+	"Graphe.h"
+	<allegro.h>
+
+1555702969 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\src\graphe.cpp
+	"Graphe.h"
+
+1555597023 source:c:\users\solene\desktop\solene\piscine-2019-tg-kenny\v3.2\src\sommet.cpp
+	"Sommet.h"
+
