@@ -2,6 +2,14 @@
 
 using namespace std;
 
+
+/** constructeur de la classe Graphe
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 Graphe::Graphe()
 {
     std::ifstream ifs("manhattan.txt", std::ios::in);
@@ -79,12 +87,27 @@ Graphe::Graphe()
     }
 }
 
+
+
+/** destructeur de la classe Arrete
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 Graphe::~Graphe()
 {
     //dtor
 }
 
-
+/** fonction/methode qui permet de
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 void Graphe::remplissage(BITMAP *fond) const
 {
     int x,y,id;
@@ -96,6 +119,14 @@ void Graphe::remplissage(BITMAP *fond) const
         circlefill(fond,x,y,10,makecol(255,255,255));
     }
 }
+
+/** constructeur de la classe Arrete
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 void Graphe::remplissage_arrete(BITMAP *fond) const
 {
     int narrete;
@@ -130,6 +161,14 @@ void Graphe::remplissage_arrete(BITMAP *fond) const
     }
 }
 
+
+/** constructeur de la classe Arrete
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 void Graphe::remplissage_poids(BITMAP *fond) const
 {
     int narrete,tmp;
@@ -174,6 +213,14 @@ void Graphe::remplissage_poids(BITMAP *fond) const
     }
 }
 
+
+/** fonction qui affiche le vecteur sommet
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 void Graphe::affiche_vect()
 {
     for(int i=0; i<m_ordre; i++)
@@ -183,6 +230,14 @@ void Graphe::affiche_vect()
 
 }
 
+
+/** méthode qui affiche les Arretes du graphe
+ *
+ * \
+ * \param
+ * \return
+ *
+ */
 void Graphe::affiche_tab()
 {
     int i=0;
@@ -200,6 +255,13 @@ void Graphe::affiche_tab()
     }
 }
 
+
+/** méthode qui affiche les poids des arretes
+ * \
+ * \param
+ * \return
+ *
+ */
 void Graphe::affiche_poids()
 {
     int i=0;
@@ -251,7 +313,7 @@ void Graphe::assemblage(int i, int j)
 }
 
 
-/** \brief
+/** fonction qui affiche l'arbre couvrant de poids minimum en fonction du poids : Kruskal
  *
  * \param
  * \param
@@ -328,6 +390,8 @@ std::vector<Arrete> Graphe::getVectArrete()
 
 /////////////////////////////////////////ARRETE///////////////////////////////////////////////////////////:
 
+
+
 void Graphe::remplissage_vectArrete()
 {
     //int p1,p2,id,x,y,id2,x2,y2,k,id_a;
@@ -394,7 +458,13 @@ int Graphe::print(vector <int> &solution, char code[], int arr[], int n, int k)
     //return solution;
 }
 
-// A function to generate subset by binary counting.
+/** fonction qui genere les sous ensembles par comptage binaire.
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 int Graphe::BinaryCounting(vector <vector <int>> &filtree, int arr[], int n)
 {
     int r, i, l, taille, taille_filtre = 0;
@@ -428,6 +498,15 @@ int Graphe::BinaryCounting(vector <vector <int>> &filtree, int arr[], int n)
     return taille_filtre;
 }
 
+
+
+/** fonction qui affiche l'enumeration des solutions viable pour les arbres couvrants
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 void Graphe::bruteforce(BITMAP* fond)
 {
     int p = 0, k, i, n, taille, add;
