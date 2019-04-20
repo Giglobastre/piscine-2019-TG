@@ -218,7 +218,23 @@ void Graphe::affiche_poids()
 }
 
 // Cherche le sommet i;
-int Graphe::find(int i)
+//int Graphe::find(int i)
+//{
+//    while(sommets[i] != i)
+//    {
+//        i = sommets[i];
+//    }
+//    return i;
+//}
+//
+//void Graphe::union1(int i, int j)
+//{
+//    int a = find(i);
+//    int b = find(j);
+//    sommets[a] = b;
+//}
+
+int Graphe::trouver(int i)
 {
     while(sommets[i] != i)
     {
@@ -227,46 +243,76 @@ int Graphe::find(int i)
     return i;
 }
 
-void Graphe::union1(int i, int j)
+void Graphe::assemblage(int i, int j)
 {
-    int a = find(i);
-    int b = find(j);
+    int a = trouver(i);
+    int b = trouver(j);
     sommets[a] = b;
 }
 
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 void Graphe::kruskal()
 {
-    int mincost = 0; // Cost of min MST.
-
+    int minpoids = 0; // poids minimum
+    //std::vector<bool> ar_set(m_Arrete2.size(),true);
     // Initialize sets of disjoint sets.
     for (int i = 0; i < m_ordre; i++)
-        sommets[i] = i;
+      {
+          sommets[i] = i;
+      }
 
     // Include minimum weight edges one by one
-    int edge_count = 0;
-    while (edge_count < m_ordre - 1)
-    {
-        float min = INT_MAX;
+    int compte_arrete = 0;
+//    std::cout<<m_Arrete2[1].getp1();
+//    std::cout<<m_Arrete2[0].getp1();
+//    std::cout<<m_Arrete2[2].getp1();
+//    std::cout<<m_Arrete2[4].getp1();
+
+
+
+    while (compte_arrete < m_ordre - 1)
+        {
+        float min_poids = INT_MAX;
         int a = -1, b = -1;
+        //cout<<m_taille<<m_Arrete2.size()<<endl;
         for (int i = 0; i < m_ordre; i++)
         {
-            for (int j = 0; j < m_ordre; j++)
-            {
-                if (find(i) != find(j) && m_Arrete2[i].getp1() < min)
+            for(int j = 0; j < m_ordre; j++) {
+
+                //cout<<"YOLO"<<i<<endl;
+                /*if (m_Arrete2[i].gets1().getID() != m_Arrete2[i].gets2().getID()
+                    && m_Arrete2[i].getp1() < min_poids ) //&& ar_set[m_Arrete2[i].getID()]*/
+                if (trouver(i) != trouver(j) && m_Arrete2[i].getp1() < min_poids)
                 {
-                    min = m_Arrete2[i].getp1();
-                    a = i;
-                    b = j;
+                    //cout<<"H1"<<endl;
+                    min_poids = m_Arrete2[i].getp1();
+                    //cout<<"H2"<<endl;
+                    a = m_Arrete2[i].gets1().getID();
+                    //cout<<"H3"<<endl;
+                    b = m_Arrete2[i].gets2().getID();
+                    //cout<<"H4"<<endl;
+                    //ar_set[m_Arrete2[i].getID()] = false;
+                    //cout<<"H5"<<endl;
                 }
             }
         }
-        union1(a, b);
-        cout<<"Edge "<< edge_count++<<":("<<a<<", "<<b<<") cost:"<<min<<"\n"<<endl;
-        mincost += min;
-    }
-    cout<<"\n Minimum cost= "<<mincost<<" \n"<<endl;
+        assemblage(a, b);
 
+        cout<<"Arrete "<< compte_arrete++ <<":("<<a<<", "<<b<<") cost:"<<min_poids<<"\n"<<endl;
+
+        minpoids += min_poids;
+
+    }
+
+    cout<<"\n Poids minimum= "<<minpoids<<" \n"<<endl;
 }
 
 int Graphe::getOrdre()
@@ -301,7 +347,7 @@ void Graphe::remplissage_vectArrete()
 
         //Sommet S1(id,x,y), S2(id2,x2,y2);
 
-        //m_Sommets[ns1].affiche();
+        //m_s[ns1].affiche();
         //m_Sommets[ns2].affiche();
         ///  cout<<p1<<" "<<p2<<" "<<id_a<<endl;
         ///m_Arrete2.push_back(Arrete{S1,S2,p1,p2,id_a});
@@ -473,4 +519,167 @@ void Graphe::affichept(BITMAP* fond,float p1, float p2)
     circlefill(fond,p1*100+600,p2*100+100,1,makecol(255,0,0));//modif ici les valeurs pour modifier 'ecartement et positionement des pts
 }
 
+
+//void Graphe::kruskal()
+//{
+//    int minpoids = 0; // poids minimum
+//    std::vector<bool> ar_set(m_Arrete2.size(),true);
+//     Initialize sets of disjoint sets.
+//    for (int i = 0; i < m_ordre; i++)
+//      {
+//          sommets[i] = i;
+//      }
+//
+//     Include minimum weight edges one by one
+//    int compte_arrete = 0;
+//    std::cout<<m_Arrete2[1].getp1();
+//    std::cout<<m_Arrete2[0].getp1();
+//    std::cout<<m_Arrete2[2].getp1();
+//    std::cout<<m_Arrete2[4].getp1();
+//
+//
+//
+//    while (compte_arrete< m_ordre - 1) {
+//        float min_poids = INT_MAX;
+//        int a = -1, b = -1;
+//        for (int i = 0; i < m_taille; i++) {
+//                if (m_Arrete2[i].gets1().getID() != m_Arrete2[i].gets2().getID()
+//                    && m_Arrete2[i].getp1() < min_poids && ar_set[m_Arrete2[i].getID()]) {
+//                    min_poids = m_Arrete2[i].getp1();
+//                    a = m_Arrete2[i].gets1().getID();
+//                    b = m_Arrete2[i].gets2().getID();
+//                    ar_set[m_Arrete2[i].getID()] = false;
+//                }
+//        }
+//        assemblage(a, b);
+//        cout<<"Arrete "<< compte_arrete++ <<":("<<a<<", "<<b<<") cost:"<<min_poids<<"\n"<<endl;
+//        minpoids += min_poids;
+//    }
+//
+//    cout<<"\n Poids minimum= "<<minpoids<<" \n"<<endl;
+//}
+
+//-------------------
+
+vector<Arrete> Graphe::kruskal_prof()
+    {
+        // Variables locales
+        vector<Arrete> tmp_mArrete2;
+        vector<Arrete> arbre; // tableau d’arêtes de poids minimum à retourner
+        arbre.reserve(m_taille);
+        int connexe[m_ordre]; // tableau dynamique des numéros de sommets connexes de l’arbre
+        int indiceA = 0, indiceG = 0; // indices de l’arbre et du graphe initialisés à 0
+        int x, s1, s2; // numéros de sommets intermédiaires
+        Arrete u; // arête reliant 2 sommets x1 et x2
+        // Allouer l’arbre de « ordre - 1 » arêtes
+        //…
+        // Allouer le tableau connexe de « ordre » sommets
+        //…
+        // Initialiser les connexités indicées sur les numéros de sommets
+        for (x=0 ; x < m_ordre ; x++) connexe[x] = x ;
+        // Trier le graphe par ordre croissant des poids de ses « n » arêtes
+        for (x=0 ; x < m_taille ; x++) tmp_mArrete2.push_back(m_Arrete2[x]);
+        sort(tmp_mArrete2.begin(), tmp_mArrete2.end());
+        // tant que les arêtes de l’arbre et du graphe ne sont pas toutes traitées
+        while (indiceA < m_ordre - 1 && indiceG < m_taille) {
+            u = tmp_mArrete2[indiceG]; // retourner l’arête u numéro indiceG du graphe
+            s1 = connexe[u.gets1().getID()];
+            s2 = connexe[u.gets2().getID()]; // les sommets s1, s2 de l’arête u
+            // Tester si les sommets s1 et s2 de l’arête u forment un cycle dans l’arbre
+            if (s1 == s2) { // cycle si s1 et s2 connexes
+                indiceG++ ; // passer à l’arête suivante du graphe
+            }
+            else { // pas de cycle
+             // insérer l’arête u à la position « indiceA » de l’arbre
+                arbre[indiceA] = u ;
+                indiceA++ ;
+                indiceG++ ; // passer à l’arête suivante de l’arbre et du graphe
+            // Indiquer que les sommets s1 et s2 sont connexes
+                for (x=0 ; x < m_ordre ; x++) {
+                    if (connexe[x] == s1) {
+                        connexe[x] = s2 ;
+                    }
+                }
+
+            }
+        }
+        // Le graphe est non connexe si le nombre d’arêtes de l’arbre < nombre de sommets-1
+        if (indiceA < m_ordre - 1) {
+                cout<<"Le graphe n'est pas connexe\n"<<endl;
+        }
+        for (x=0 ; x < m_ordre ; x++) {
+            arbre[x].affiche();
+        }
+        return arbre; // retourner l’arbre de poids minimum
+    }
+//----------------------
+
+
+
+
+
+
+
+
+
+
+/*
+ //Fonction qui retourne l’arbre couvrant de poids minimum d’un graphe valué et non orienté
+ //depuis un sommet de référence
+
+
+///Paramètres :
+/// graphe : tableau d’arêtes du graphe
+
+ m_Arrete2 graphe;
+/// ordre : nombre de sommets
+
+int ordre = m_ordre;
+/// s : numéro de sommet de référence
+
+
+
+/// n : nombre d’arêtes du graphe
+
+int n = m_taille;
+
+
+t_arete * kruskal (t_arete * graphe, int ordre, int s, int n)
+    {
+        // Variables locales
+        t_arete *arbre ; // tableau d’arêtes de poids minimum à retourner
+        int *connexe ; // tableau dynamique des numéros de sommets connexes de l’arbre
+        int indiceA = 0, indiceG = 0 ; // indices de l’arbre et du graphe initialisés à 0
+        int x, s1, s2 ; // numéros de sommets intermédiaires
+        t_arete u ; // arête reliant 2 sommets x1 et x2
+        // Allouer l’arbre de « ordre - 1 » arêtes
+        //…
+        // Allouer le tableau connexe de « ordre » sommets
+        //…
+        // Initialiser les connexités indicées sur les numéros de sommets
+        for (x=0 ; x<ordre ; x++) connexe[x] = x ;
+        // Trier le graphe par ordre croissant des poids de ses « n » arêtes
+        //…
+        // tant que les arêtes de l’arbre et du graphe ne sont pas toutes traitées
+        while (indiceA<ordre-1 && indiceG<n) {
+            u = graphe[indiceG] ; // retourner l’arête u numéro indiceG du graphe
+            s1 = connexe[u.x] ; s2 = connexe[u.y] ; // les sommets s1, s2 de l’arête u
+            // Tester si les sommets s1 et s2 de l’arête u forment un cycle dans l’arbre
+            if (s1==s2) // cycle si s1 et s2 connexes
+                indiceG++ ; // passer à l’arête suivante du graphe
+            else { // pas de cycle
+             // insérer l’arête u à la position « indiceA » de l’arbre
+                arbre[indiceA] = u ;
+                indiceA++ ; indiceG++ ; // passer à l’arête suivante de l’arbre et du graphe
+            // Indiquer que les sommets s1 et s2 sont connexes
+                for (x=0 ; x<ordre ; x++)
+                    if (connexe[x]==s1) connexe[x] = s2 ;
+            }
+        }
+        // Le graphe est non connexe si le nombre d’arêtes de l’arbre < nombre de sommets-1
+        if (indiceA<ordre-1) { printf("Le graphe n'est pas connexe\n") ; }
+        return arbre ; // retourner l’arbre de poids minimum
+
+    }
+    */
 

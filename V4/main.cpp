@@ -9,8 +9,8 @@ using namespace std;
 
 /*#define HEIGHT 480*2
 #define WIDTH 640*2*/
-#define HEIGHT 900
-#define WIDTH 1600
+#define HEIGHT 576
+#define WIDTH 720
 
 void ini_alleg()///routine d'initialisation allegro
 {
@@ -61,8 +61,10 @@ int main()
                     cout<<"HELLO"<<endl;
                 g.getVectArrete()[i].affiche();
             }
+
             cout<<"KRUSKAL-------"<<endl;
-            g.kruskal();
+            g.kruskal_prof();
+            cout<<"FIN KRUSKAL-------"<<endl;
 
             while (!key[KEY_ESC])
             {

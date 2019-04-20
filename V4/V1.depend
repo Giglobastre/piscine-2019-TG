@@ -204,3 +204,40 @@
 1555623912 source:c:\users\kenny\desktop\piscine 2019\v4\src\sommet.cpp
 	"Sommet.h"
 
+1555786999 source:c:\users\solene\desktop\solene\brute forcekenny\v4\main.cpp
+	<iostream>
+	"Sommet.h"
+	<vector>
+	<fstream>
+	"Graphe.h"
+	<allegro.h>
+
+1555703922 c:\users\solene\desktop\solene\brute forcekenny\v4\include\sommet.h
+	<iostream>
+	<vector>
+
+1555787549 c:\users\solene\desktop\solene\brute forcekenny\v4\include\graphe.h
+	<vector>
+	<fstream>
+	<iostream>
+	<allegro.h>
+	"Sommet.h"
+	<string>
+	<sstream>
+	"Arrete.h"
+	<iostream>
+	<math.h>
+	<algorithm>
+
+1555788644 c:\users\solene\desktop\solene\brute forcekenny\v4\include\arrete.h
+	"Sommet.h"
+
+1555788649 source:c:\users\solene\desktop\solene\brute forcekenny\v4\src\arrete.cpp
+	"Arrete.h"
+
+1555703922 source:c:\users\solene\desktop\solene\brute forcekenny\v4\src\sommet.cpp
+	"Sommet.h"
+
+1555788075 source:c:\users\solene\desktop\solene\brute forcekenny\v4\src\graphe.cpp
+	"Graphe.h"
+

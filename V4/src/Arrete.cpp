@@ -10,16 +10,22 @@ Arrete::Arrete(Sommet S1, Sommet S2, float p1, float p2, int id)
 
 }
 
+Arrete::Arrete()
+{
+
+
+}
+
 Arrete::~Arrete()
 {
     //dtor
 }
 
-float Arrete::getp1()
+float Arrete::getp1() const
 {
     return m_p1;
 }
-float Arrete::getp2()
+float Arrete::getp2() const
 {
     return m_p2;
 }
@@ -49,4 +55,8 @@ void Arrete::affiche()
     std::cout<<"sommet2 : "<<std::endl;
     m_S2.affiche();
     std::cout<<"poids 1 et 2 "<<m_p1<<" ; "<<m_p2<<std::endl;
+}
+
+bool Arrete::operator <(const Arrete& a) const {
+    return this->m_p1 < a.getp1();
 }

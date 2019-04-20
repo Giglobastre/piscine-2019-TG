@@ -11,6 +11,7 @@
 #include "Arrete.h"
 #include<iostream>
 #include<math.h>
+#include <algorithm>
 
 class Graphe//:public Sommet
 {
@@ -24,7 +25,7 @@ class Graphe//:public Sommet
         void affiche_vect();
         void affiche_tab();
         void affiche_poids();
-        void kruskal();
+        //void kruskal();
         int getOrdre();
         void affiche_Arrete();
         std::vector<Arrete> getVectArrete();
@@ -33,6 +34,9 @@ class Graphe//:public Sommet
         int BinaryCounting(std::vector <std::vector <int>> &filtree, int arr[], int n);
         int print(std::vector <int> &solution, char code[], int arr[], int n, int k);
         void affichept(BITMAP* fond,float p1, float p2);
+        void kruskal();
+        std::vector<Arrete> kruskal_prof();
+        bool comparator(Arrete const & a, Arrete const & b);
         //int BinaryCounting(std::vector <std::vector <int>> &filtree, int arr[], int n, int i, int taille_filtre);
 
     protected:
@@ -49,8 +53,8 @@ class Graphe//:public Sommet
         //std::vector <std::vector<int>> m_voisins_id; //vect a 2 dim mais c mieux de lineariser
         std::vector <int>  m_voisins_id;
         std::vector <float> m_poids;
-        int find(int i);
-        void union1(int i, int j);
+        int trouver(int i);
+        void assemblage(int i, int j);
 };
 
 #endif // GRAPHE_H
