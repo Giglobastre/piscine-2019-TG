@@ -40,9 +40,7 @@ Arrete::~Arrete()
 
 /** Fonction qui permet d'acceder au poids 1
  *
- * \param
- * \param
- * \return
+ * \return le poids 1 : m_p1
  *
  */
 float Arrete::getp1() const
@@ -52,9 +50,7 @@ float Arrete::getp1() const
 
 /** Fonction qui permet d'acceder au poids 2
  *
- * \param
- * \param
- * \return
+ * \return le poids 2 : m_p2
  *
  */
 float Arrete::getp2() const
@@ -64,9 +60,7 @@ float Arrete::getp2() const
 
 /** Fonction qui permet de modifier le sommet 1
  *
- * \sommet
- * \param
- * \return
+ * \param sommet S1
  *
  */
 void Arrete::setS1(Sommet S1)
@@ -76,9 +70,7 @@ void Arrete::setS1(Sommet S1)
 
 /** Fonction qui permet de modifier le sommet 2
  *
- * \sommet
- * \param
- * \return
+ * \param : sommet
  *
  */
 void Arrete::setS2(Sommet S2)
@@ -88,9 +80,7 @@ void Arrete::setS2(Sommet S2)
 
 /** Fonction qui permet de modifier le poids 1
  *
- * \float
- * \param
- * \return
+ * \param : float p1
  *
  */
 void Arrete::setp1(float p1)
@@ -100,12 +90,9 @@ void Arrete::setp1(float p1)
 
 /** Fonction qui permet de modifier le poids 2
  *
- * \param
- * \param
- * \return
+ * \param : float p2
  *
  */
-
 void Arrete::setp2(float p2)
 {
     m_p2=p2;
@@ -113,12 +100,8 @@ void Arrete::setp2(float p2)
 
 /** Fonction qui permet d'afficher le numero de l'arrete, ses sommets et ses poids
  *
- * \param
- * \param
- * \return
  *
  */
-
 void Arrete::affiche()
 {
    // std::cout<<"YOLO"<<std::endl;

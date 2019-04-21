@@ -9,8 +9,8 @@ using namespace std;
 
 /*#define HEIGHT 480*2
 #define WIDTH 640*2*/
-#define HEIGHT 576
-#define WIDTH 720
+#define HEIGHT 768
+#define WIDTH 1024
 
 void ini_alleg()///routine d'initialisation allegro
 {
