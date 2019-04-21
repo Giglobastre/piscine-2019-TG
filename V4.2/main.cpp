@@ -12,7 +12,7 @@ using namespace std;
 #define HEIGHT 768
 #define WIDTH 1024
 
-void ini_alleg()///routine d'initialisation allegro
+void ini_alleg()/**< routine d'initialisation allegro */
 {
     allegro_init();
     set_display_switch_mode(SWITCH_BACKGROUND);

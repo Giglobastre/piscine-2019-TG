@@ -260,13 +260,7 @@ void Graphe::affiche_poids()
     }
 }
 
-/** \brief renvoie un entier i
- *
- * \
- * \param  : int i
- * \return : int i
- *
- */
+
 int Graphe::trouver(int i)
 {
     while(sommets[i] != i)
@@ -276,13 +270,7 @@ int Graphe::trouver(int i)
     return i;
 }
 
-/** \brief renvoie un entier i
- *
- * \
- * \param  : int i
- * \return : int i
- *
- */
+
 void Graphe::assemblage(int i, int j)
 {
     int a = trouver(i);
@@ -582,7 +570,6 @@ vector<int>connex;
             {
                 if(connex[z]==tmp2)
                 {
-                    //connex[z]=s2;
                     connex[z]=connex[s2];
                 }
             }
@@ -604,7 +591,7 @@ vector<int>connex;
             cpt3++;
         }
     }
-    /// /aff des derniere solutions
+    /**< affichage des derniere solutions */
     cout<<endl<< "solutions viables apres deuxieme filtrage " <<cpt<<endl;
 
     /// ////////////////////////////////////////////
